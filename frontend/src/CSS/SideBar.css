@@ -1,0 +1,84 @@
+/* SideBar.css */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Container */
+.sidebar-container {
+    background-color: #2c3e50; /* Dark blue-gray */
+    color: #ecf0f1; /* Light gray text */
+    padding: 20px;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Form */
+.sidebar-search-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.sidebar-search-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.sidebar-search-button {
+    padding: 10px 20px;
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-search-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Active Users Section */
+.active-users-section {
+    flex: 1;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #34495e; /* Slightly darker gray */
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.active-users-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #7f8c8d; /* Light gray border */
+    padding-bottom: 5px;
+}
+
+/* Styling for OtherUser Component */
+.other-user {
+    background-color: #ecf0f1; /* Light gray for user cards */
+    color: #2c3e50; /* Dark text for user cards */
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.other-user:hover {
+    background-color: #bdc3c7; /* Slightly darker gray on hover */
+}
