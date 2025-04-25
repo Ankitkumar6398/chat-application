@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8504fa76-7cad-4fef-bbf0-6d7844c2cb90" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/CSS/OtherUsers.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useGetMessages.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useGetOtherUsers.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useGetRealTimeMessage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/messageSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/socketSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chat-application.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/message.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/message.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middlewares/isAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middlewares/isAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/Message.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/Message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/MessageContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/MessageContainer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/Messages.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/Messages.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/SideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/SideBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/CSS/Signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CSS/Signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Message.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MessageContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MessageContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/OtherUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/OtherUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/OtherUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/OtherUsers.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SendInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SendInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/userSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2uua1Mo8AYxtxSEWR62lP45wUQw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Ankit Singh\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8504fa76-7cad-4fef-bbf0-6d7844c2cb90" name="Changes" comment="" />
+      <created>1743100697054</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743100697054</updated>
+      <workItem from="1743100698570" duration="1289000" />
+      <workItem from="1744261875290" duration="174000" />
+      <workItem from="1744460556412" duration="55000" />
+      <workItem from="1744535912094" duration="4000" />
+      <workItem from="1744919495473" duration="5594000" />
+      <workItem from="1745177822649" duration="4000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1744925032271</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744925032271</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+</project>

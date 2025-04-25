@@ -1,37 +1,34 @@
-import express from 'express';
-import dotenv from 'dotenv';
+// const express = require('express')// method-1
+import express from "express"; // method-2
+import dotenv from "dotenv"; 
 import connectDB from "./config/db.js";
-import userRoute from './routes/user.route.js';
+import userRoute from "./routes/user.route.js";
+import messageRoute from "./routes/messsage.route.js";
 import cookieParser from "cookie-parser";
-import messsageRoute from "./routes/messsage.route.js";
 import cors from "cors";
+import { app, server } from "./socket/socket.js";
+dotenv.config({});
 
+ 
+const PORT = process.env.PORT || 5000;
 
-
-const app = express();
-
-
-dotenv.config();
-
-connectDB()
-
-const PORT =  8080;
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use( cookieParser());
-
-const corsOption = {
-    origin : 'http://localhost:3000',
-    credentials: true,
+// middleware
+app.use(express.urlencoded({extended:true}));
+app.use(express.json()); 
+app.use(cookieParser());
+const corsOption={
+    origin:'http://localhost:3000',
+    credentials:true
 };
-app.use(cors(corsOption))
-
-app.use("/api/user",userRoute);
-app.use("/api/message",messsageRoute)
+app.use(cors(corsOption)); 
 
 
+// routes
+app.use("/api/v1/user",userRoute); 
+app.use("/api/v1/message",messageRoute);
+ 
 
-app.listen(PORT,()=>{
-    console.log(` Server listen at port ${PORT}`)
+server.listen(PORT, ()=>{
+    connectDB();
+    console.log(`Server listen at port ${PORT}`);
 });

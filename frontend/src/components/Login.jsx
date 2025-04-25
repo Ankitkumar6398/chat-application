@@ -1,84 +1,87 @@
-import React, {useState} from "react";
-import "../CSS/Login.css";
-import {Link,useNavigate} from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
-import {useDispatch} from "react-redux";
-import {setAuthUser} from "../redux/userSlice";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setAuthUser } from '../redux/userSlice';
+import '../CSS/Login.css'; // Import the CSS file
 
+// Define BASE_URL directly instead of importing it
+const BASE_URL = "http://localhost:8080";
 
+const Login = () => {
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
 
-function Login() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        withCredentials: true
+      });
 
-    const [user, setUser] = useState({
-        username: "",
-        password: "",
+      navigate("/");
+      console.log(res);
+      dispatch(setAuthUser(res.data));
+    } catch (error) {
+      toast.error(error.response?.data?.message || "An error occurred during login");
+      console.log(error);
+    }
+
+    setUser({
+      username: "",
+      password: ""
     });
+  };
 
+  return (
+    <div className="login-container">
+      <div className="login-box">
+        <h1 className="login-title">Login</h1>
+        <form onSubmit={onSubmitHandler}>
 
+          <div className="form-group">
+            <label className="form-label">Username</label>
+            <input
+              value={user.username}
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
+              className="form-input"
+              type="text"
+              placeholder="Username"
+            />
+          </div>
 
+          <div className="form-group">
+            <label className="form-label">Password</label>
+            <input
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              className="form-input"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
 
+          <p className="signup-link">
+            Don't have an account? <Link to="/signup">Signup</Link>
+          </p>
 
+          <div>
+            <button type="submit" className="login-button">Login</button>
+          </div>
 
-
-    const onSubmit = async(e) => {
-        e.preventDefault();
-        try{
-            const res = await axios.post('http://localhost:8080/api/user/login', user,{
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                withCredentials: true,
-
-            });
-            navigate("/");
-            toast.success(res.data.message);
-            dispatch(setAuthUser(res.data));
-
-
-        }catch(err){
-            toast.error(err.response.data.message)
-            console.log(err);
-        }
-        setUser({
-            username: "",
-            password: "",
-
-        })
-    };
-
-    return (<div className="signup-container">
-        <div className="signup-card">
-            <h2 className="signup-title">Login an Account</h2>
-            <form onSubmit={onSubmit} className="signup-form">
-
-                <input
-                    value={user.username}
-                    onChange={(e) => setUser({ ...user, username: e.target.value })}
-                    type="username"
-                    placeholder="UserName"
-                    className="signup-input"
-                />
-                <input
-                    value={user.password}
-                    onChange={(e) => setUser({ ...user, password: e.target.value })}
-                    type="password"
-                    placeholder="Password"
-                    className="signup-input"
-                />
-
-                <button type="submit" className="signup-button">
-                    Login
-                </button>
-            </form>
-            <p className="signup-footer">
-                Don't have an account? <Link to="/register">Register</Link>
-            </p>
-        </div>
-    </div>);
-}
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default Login;

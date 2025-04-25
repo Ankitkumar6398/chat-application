@@ -1,56 +1,36 @@
 /* HomePage.css */
 
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* HomePage Layout */
-.HomePage {
+.homepage-container {
     display: flex;
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    background-color: #ecf0f1; /* Light gray background */
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    background-color: cornflowerblue;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Sidebar Styling */
-.HomePage > .sidebar {
-    flex: 1;
-    max-width: 300px; /* Fixed width for the sidebar */
-    background-color: #2c3e50; /* Dark blue-gray */
-    color: #ecf0f1; /* Light gray text */
-    display: flex;
-    flex-direction: column;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-}
-
-/* MessageContainer Styling */
-.HomePage > .message-container {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff; /* White background for message container */
-    padding: 20px;
-    overflow-y: auto; /* Enable scrolling for long messages */
-    border-left: 1px solid #ccc;
-}
-
-/* Media Query for Responsiveness */
-@media (max-width: 768px) {
-    .HomePage {
+/* Tablet view: medium-sized screens */
+@media (max-width: 1024px) {
+    .homepage-container {
         flex-direction: column;
     }
+}
 
-    .HomePage > .sidebar {
-        max-width: 100%;
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+    .homepage-container {
+        flex-direction: column;
         height: auto;
-        box-shadow: none;
+        min-height: 100vh;
     }
+}
 
-    .HomePage > .message-container {
-        padding: 10px;
+/* Phones: small screens */
+@media (max-width: 480px) {
+    .homepage-container {
+        padding: 0;
+        flex-direction: column;
+        height: auto;
     }
 }

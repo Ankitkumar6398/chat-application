@@ -1,16 +1,26 @@
-import React from 'react';
-import SideBar from '../components/SideBar';
-import MessageContainer from '../components/MessageContainer';
-import '../CSS/HomePage.css'
-const HomePage = () => {
-    return (
-        <div className='HomePage'>
-            <SideBar/>
-            <MessageContainer/>
+import React, { useEffect } from 'react';
+import SideBar from './SideBar';
+import MessageContainer from './MessageContainer';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import '../CSS/HomePage.css'; // Import a CSS file for styling
 
-            
-        </div>
-    );
+const HomePage = () => {
+  const { authUser } = useSelector(store => store.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!authUser) {
+      navigate("/login");
+    }
+  }, []);
+
+  return (
+    <div className="homepage-container">
+      <SideBar />
+      <MessageContainer />
+    </div>
+  );
 };
 
 export default HomePage;

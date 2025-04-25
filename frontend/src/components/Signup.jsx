@@ -18,7 +18,7 @@ function Signup() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:8080/api/user/register', user, {
+            const res = await axios.post('http://localhost:8080/api/v1/user/register', user, {
                 headers: {
                     "Content-Type": "application/json"
                 }, withCredentials: true
@@ -27,15 +27,13 @@ function Signup() {
             if(res.data.success)   {
                 navigate("/login");
                 toast.success(res.data.message);
-
             }
-
         } catch (e) {
-            console.log(e.message);
+            console.log(e);
+            toast.error(e.response?.data?.message || "Registration failed. Please try again.");
         }
         setUser({
             fullName: "", username: "", password: "", confirmPassword: "", gender: ""
-
         })
     };
 
