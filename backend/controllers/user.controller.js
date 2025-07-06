@@ -18,15 +18,10 @@ export const register = async (req, res) => {
         }
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // profilePhoto
-        const maleProfilePhoto = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-        const femaleProfilePhoto = `https://avatar.iran.liara.run/public/girl?username=${username}`;
-
         await User.create({
             fullName,
             username,
             password: hashedPassword,
-            profilePhoto: gender === "male" ? maleProfilePhoto : femaleProfilePhoto,
             gender
         });
         return res.status(201).json({
@@ -100,3 +95,43 @@ export const getOtherUsers = async (req, res) => {
         console.log(error);
     }
 }
+
+export const updateProfilePhoto = async (req, res) => {
+    try {
+        const { profilePhoto } = req.body;
+        const userId = req.id;
+
+        if (!profilePhoto) {
+            return res.status(400).json({ 
+                message: "Profile photo URL is required",
+                success: false 
+            });
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { profilePhoto },
+            { new: true }
+        ).select("-password");
+
+        if (!updatedUser) {
+            return res.status(404).json({ 
+                message: "User not found",
+                success: false 
+            });
+        }
+
+        return res.status(200).json({
+            message: "Profile photo updated successfully",
+            success: true,
+            user: updatedUser
+        });
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ 
+            message: "Internal server error", 
+            success: false 
+        });
+    }
+};

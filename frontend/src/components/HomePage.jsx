@@ -3,7 +3,6 @@ import SideBar from './SideBar';
 import MessageContainer from './MessageContainer';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/HomePage.css'; // Import a CSS file for styling
 
 const HomePage = () => {
   const { authUser } = useSelector(store => store.user);
@@ -16,7 +15,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="homepage-container">
+    <div className="flex h-screen bg-gray-50">
       <SideBar />
       <MessageContainer />
     </div>

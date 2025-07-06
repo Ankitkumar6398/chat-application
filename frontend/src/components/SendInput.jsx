@@ -3,10 +3,8 @@ import { IoSend } from "react-icons/io5";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setMessages } from '../redux/messageSlice';
-
-
-import '../CSS/SendInput.css';
 import toast from 'react-hot-toast';
+
 const BASE_URL = "http://localhost:8080";
 
 const SendInput = () => {
@@ -50,22 +48,22 @@ const SendInput = () => {
     };
 
     return (
-        <form onSubmit={onSubmitHandler} className="send-input-form">
-            <div className="input-container">
+        <form onSubmit={onSubmitHandler} className="p-4 border-t border-gray-200 bg-white">
+            <div className="flex items-center space-x-3">
                 <input
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     type="text"
                     placeholder="Send a message..."
-                    className="message-input"
+                    className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl text-sm transition-all duration-300 bg-white shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 placeholder-gray-400 disabled:bg-gray-100 disabled:cursor-not-allowed"
                     disabled={isLoading || !selectedUser?._id}
                 />
                 <button 
                     type="submit" 
-                    className="send-button"
+                    className="p-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-indigo-200"
                     disabled={isLoading || !message.trim() || !selectedUser?._id}
                 >
-                    <IoSend />
+                    <IoSend className="w-5 h-5" />
                 </button>
             </div>
         </form>

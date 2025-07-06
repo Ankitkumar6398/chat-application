@@ -20,13 +20,13 @@ const userSchema = new mongoose.Schema({
         enum:["Male", "Female"],
         required: true,
     },
-    avatar: {
+    profilePhoto: {
         type: String,
         default: function() {
             // Default avatar based on gender
             return this.gender === "Male" 
-                ? "https://avatar.iran.liara.run/public/boy"
-                : "https://avatar.iran.liara.run/public/girl";
+                ? `https://avatar.iran.liara.run/public/boy?username=${this.username}`
+                : `https://avatar.iran.liara.run/public/girl?username=${this.username}`;
         }
     },
     // You could also add avatar customization fields

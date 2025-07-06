@@ -2,7 +2,6 @@ import React from 'react';
 import OtherUser from './OtherUser';
 import useGetOtherUsers from '../hooks/useGetOtherUsers';
 import { useSelector } from 'react-redux';
-import '../CSS/OtherUsers.css';
 
 const OtherUsers = () => {
     // my custom hook
@@ -11,7 +10,7 @@ const OtherUsers = () => {
     if (!otherUsers) return null; // early return in React
 
     return (
-        <div className="user-list-container">
+        <div className="space-y-1 p-2">
             {otherUsers?.map(user => (
                 <OtherUser key={user._id} user={user} />
             ))}
