@@ -37,17 +37,17 @@ const MessageContainer = ({ onMenuClick }) => {
             {
                 selectedUser !== null ? (
                     <div className='flex flex-col flex-1 h-full bg-gray-50'>
-                        {/* Header - WhatsApp style */}
-                        <div className='bg-indigo-600 text-white px-4 py-3 flex items-center justify-between shadow-sm'>
+                        {/* Header - Matching sidebar style */}
+                        <div className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-4 flex items-center justify-between shadow-sm'>
                             <div className="flex items-center space-x-3">
                                 <button
                                     onClick={onMenuClick}
-                                    className="md:hidden p-1 hover:bg-indigo-700 rounded-full transition-colors"
+                                    className="md:hidden p-2 hover:bg-white/20 rounded-full transition-colors"
                                 >
                                     <FiArrowLeft className="w-5 h-5" />
                                 </button>
                                 <div className="relative">
-                                    <div className='w-10 h-10 rounded-full overflow-hidden bg-white/20'>
+                                    <div className='w-10 h-10 rounded-full overflow-hidden bg-white/20 ring-2 ring-white/30'>
                                         <img 
                                             src={selectedUser?.profilePhoto} 
                                             alt="user-profile" 
@@ -56,19 +56,19 @@ const MessageContainer = ({ onMenuClick }) => {
                                         />
                                     </div>
                                     {isOnline && (
-                                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full shadow-sm"></div>
                                     )}
                                 </div>
                                 <div className='flex-1 min-w-0'>
-                                    <div className='font-semibold truncate'>
+                                    <div className='font-semibold text-lg truncate'>
                                         {selectedUser?.fullName}
                                     </div>
-                                    <div className='text-sm text-indigo-100'>
+                                    <div className='text-sm text-blue-100'>
                                         {isOnline ? 'online' : 'offline'}
                                     </div>
                                 </div>
                             </div>
-                            <button className="p-2 text-white hover:bg-indigo-700 rounded-full transition-colors">
+                            <button className="p-2 text-white hover:bg-white/20 rounded-full transition-colors">
                                 <FiMoreVertical className="w-5 h-5" />
                             </button>
                         </div>
@@ -82,8 +82,8 @@ const MessageContainer = ({ onMenuClick }) => {
                 ) : (
                     <div className='flex flex-col items-center justify-center flex-1 bg-gray-50'>
                         <div className="text-center p-8">
-                            <div className="w-24 h-24 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg className="w-12 h-12 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                 </svg>
                             </div>

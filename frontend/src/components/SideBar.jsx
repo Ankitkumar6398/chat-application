@@ -75,20 +75,20 @@ const SideBar = ({ onBackClick }) => {
 
     return (
         <>
-            <div className="w-full h-full flex flex-col bg-white">
-                {/* Header - WhatsApp style */}
-                <div className="bg-indigo-600 text-white px-4 py-3 flex items-center justify-between">
+            <div className="w-full h-full flex flex-col bg-white border-r border-gray-200">
+                {/* Header - Modern style */}
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-4 flex items-center justify-between shadow-sm">
                     <div className="flex items-center space-x-3">
                         {onBackClick && (
                             <button
                                 onClick={onBackClick}
-                                className="md:hidden p-1 hover:bg-indigo-700 rounded-full transition-colors"
+                                className="md:hidden p-2 hover:bg-white/20 rounded-full transition-colors"
                             >
                                 <FiArrowLeft className="w-5 h-5" />
                             </button>
                         )}
                         <div className="relative">
-                            <div className="w-10 h-10 rounded-full overflow-hidden bg-white/20 cursor-pointer hover:opacity-80 transition-opacity">
+                            <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 cursor-pointer hover:opacity-80 transition-opacity ring-2 ring-white/30">
                                 {authUser?.profilePhoto ? (
                                     <img 
                                         src={authUser.profilePhoto} 
@@ -97,37 +97,37 @@ const SideBar = ({ onBackClick }) => {
                                         onError={handleImageError}
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center bg-white/20 text-white font-semibold">
+                                    <div className="w-full h-full flex items-center justify-center bg-white/20 text-white font-semibold text-lg">
                                         {authUser?.fullName?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
                                 )}
                             </div>
                             <button
                                 onClick={() => setIsProfileModalOpen(true)}
-                                className="absolute -bottom-1 -right-1 w-5 h-5 bg-white text-indigo-600 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                                className="absolute -bottom-1 -right-1 w-6 h-6 bg-white text-blue-600 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
                             >
-                                <FiUser className="w-2.5 h-2.5" />
+                                <FiUser className="w-3 h-3" />
                             </button>
                         </div>
                         <div className="flex-1 min-w-0">
-                            <div className="font-medium truncate">
+                            <div className="font-semibold text-lg truncate">
                                 {authUser?.fullName}
                             </div>
-                            <div className="text-sm text-indigo-100">
+                            <div className="text-sm text-blue-100">
                                 @{authUser?.username}
                             </div>
                         </div>
                     </div>
                     <button
                         type="button"
-                        className="p-2 text-white hover:bg-indigo-700 rounded-full transition-colors"
+                        className="p-2 text-white hover:bg-white/20 rounded-full transition-colors"
                     >
                         <FiMoreVertical className="w-5 h-5" />
                     </button>
                 </div>
 
                 {/* Search Bar */}
-                <div className="p-3 bg-gray-50 border-b border-gray-200">
+                <div className="p-4 bg-gray-50 border-b border-gray-200">
                     <form onSubmit={searchSubmitHandler} className="relative">
                         <div className="relative">
                             <BiSearchAlt2 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -136,22 +136,22 @@ const SideBar = ({ onBackClick }) => {
                                 onChange={(e) => setSearch(e.target.value)}
                                 type="text"
                                 placeholder="Search or start new chat"
-                                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+                                className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm shadow-sm"
                             />
                         </div>
                     </form>
                 </div>
 
                 {/* Chats List */}
-                <div className="flex-1 overflow-y-auto custom-scrollbar">
+                <div className="flex-1 overflow-y-auto custom-scrollbar bg-white">
                     <OtherUsers />
                 </div>
 
                 {/* Logout Button - Hidden on mobile, shown in menu on desktop */}
-                <div className="hidden md:block p-4 border-t border-gray-200">
+                <div className="hidden md:block p-4 border-t border-gray-200 bg-gray-50">
                     <button
                         onClick={logoutHandler}
-                        className="w-full py-2 px-4 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors text-sm font-medium"
+                        className="w-full py-3 px-4 rounded-xl bg-red-500 text-white hover:bg-red-600 transition-colors text-sm font-medium shadow-sm"
                     >
                         Logout
                     </button>
