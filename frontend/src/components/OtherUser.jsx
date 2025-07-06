@@ -36,34 +36,40 @@ const OtherUser = ({ user }) => {
     };
 
     return (
-        <>
-            <div 
-                onClick={() => selectedUserHandler(user)} 
-                className={`flex items-center p-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-gray-100 ${
-                    selectedUser?._id === user?._id ? 'bg-indigo-50 border-l-4 border-indigo-500' : ''
-                }`}
-            >
-                <div className="relative mr-3">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-                        <img 
-                            src={user?.profilePhoto} 
-                            alt="user-profile" 
-                            className="w-full h-full object-cover"
-                            onError={handleImageError}
-                        />
-                    </div>
-                    {isOnline && (
-                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
-                    )}
+        <div 
+            onClick={() => selectedUserHandler(user)} 
+            className={`flex items-center p-3 cursor-pointer transition-colors hover:bg-gray-50 ${
+                selectedUser?._id === user?._id ? 'bg-indigo-50' : ''
+            }`}
+        >
+            <div className="relative mr-3">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                    <img 
+                        src={user?.profilePhoto} 
+                        alt="user-profile" 
+                        className="w-full h-full object-cover"
+                        onError={handleImageError}
+                    />
                 </div>
-                <div className="flex-1 min-w-0">
+                {isOnline && (
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                )}
+            </div>
+            <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
                     <div className="font-medium text-gray-900 truncate">
                         {user?.fullName}
                     </div>
+                    <div className="text-xs text-gray-500 ml-2">
+                        {/* You can add last message time here */}
+                    </div>
+                </div>
+                <div className="text-sm text-gray-500 truncate">
+                    {/* You can add last message preview here */}
+                    {isOnline ? 'online' : 'offline'}
                 </div>
             </div>
-            <div className="border-b border-gray-100 mx-3"></div>
-        </>
+        </div>
     );
 };
 

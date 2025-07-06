@@ -10,7 +10,7 @@ const OtherUsers = () => {
     if (!otherUsers) return null; // early return in React
 
     return (
-        <div className="space-y-1 p-2">
+        <div className="divide-y divide-gray-100">
             {otherUsers?.map(user => (
                 <OtherUser key={user._id} user={user} />
             ))}

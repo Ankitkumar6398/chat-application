@@ -44,28 +44,39 @@ const Message = ({ message }) => {
     };
 
     return (
-        <div ref={scroll} className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'}`}>
-            <div className={`flex items-end space-x-2 max-w-xs lg:max-w-md ${isOwnMessage ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-200">
-                        <img 
-                            className="w-full h-full object-cover"
-                            alt="User Avatar"
-                            src={isOwnMessage ? authUser?.profilePhoto || '/default-avatar.png' : selectedUser?.profilePhoto || '/default-avatar.png'} 
-                            onError={handleImageError}
-                        />
+        <div ref={scroll} className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'} mb-2`}>
+            <div className={`flex items-end space-x-2 max-w-[75%] ${isOwnMessage ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                {/* Avatar - only show for other user's messages */}
+                {!isOwnMessage && (
+                    <div className="flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200">
+                            <img 
+                                className="w-full h-full object-cover"
+                                alt="User Avatar"
+                                src={selectedUser?.profilePhoto || '/default-avatar.png'} 
+                                onError={handleImageError}
+                            />
+                        </div>
                     </div>
-                </div>
+                )}
+                
+                {/* Message Bubble */}
                 <div className={`flex flex-col ${isOwnMessage ? 'items-end' : 'items-start'}`}>
-                    <div className="text-xs text-gray-500 mb-1">
-                        {formatTime(message?.timestamp)}
-                    </div>
-                    <div className={`px-4 py-2 rounded-2xl max-w-xs lg:max-w-md break-words ${
+                    <div className={`px-3 py-2 rounded-2xl max-w-full break-words ${
                         isOwnMessage 
                             ? 'bg-indigo-600 text-white rounded-br-md' 
                             : 'bg-white text-gray-800 rounded-bl-md shadow-sm border border-gray-200'
                     }`}>
-                        {message?.message}
+                        <div className="text-sm leading-relaxed">
+                            {message?.message}
+                        </div>
+                    </div>
+                    
+                    {/* Timestamp */}
+                    <div className={`text-xs text-gray-500 mt-1 px-1 ${
+                        isOwnMessage ? 'text-right' : 'text-left'
+                    }`}>
+                        {formatTime(message?.timestamp)}
                     </div>
                 </div>
             </div>

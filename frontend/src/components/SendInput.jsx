@@ -48,25 +48,32 @@ const SendInput = () => {
     };
 
     return (
-        <form onSubmit={onSubmitHandler} className="p-4 border-t border-gray-200 bg-white">
-            <div className="flex items-center space-x-3">
-                <input
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    type="text"
-                    placeholder="Send a message..."
-                    className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl text-sm transition-all duration-300 bg-white shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 placeholder-gray-400 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                    disabled={isLoading || !selectedUser?._id}
-                />
+        <div className="bg-white border-t border-gray-200 p-3">
+            <form onSubmit={onSubmitHandler} className="flex items-end space-x-3">
+                <div className="flex-1 relative">
+                    <input
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        type="text"
+                        placeholder="Type a message..."
+                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                        disabled={isLoading || !selectedUser?._id}
+                        rows="1"
+                    />
+                </div>
                 <button 
                     type="submit" 
-                    className="p-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-indigo-200"
+                    className="flex-shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-indigo-200 flex items-center justify-center"
                     disabled={isLoading || !message.trim() || !selectedUser?._id}
                 >
-                    <IoSend className="w-5 h-5" />
+                    {isLoading ? (
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                        <IoSend className="w-5 h-5" />
+                    )}
                 </button>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 };
 
