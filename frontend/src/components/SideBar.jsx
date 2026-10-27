@@ -11,8 +11,7 @@ import { setAuthUser, setOtherUsers, setSelectedUser } from '../redux/userSlice'
 import { setMessages } from '../redux/messageSlice';
 // import '../CSS/SideBar.css';
 
-// Define BASE_URL directly instead of importing it
-const BASE_URL = "http://localhost:8080";
+import { API_BASE_URL } from "../config";
 
 const SideBar = ({ onBackClick }) => {
     const [search, setSearch] = useState("");
@@ -23,7 +22,7 @@ const SideBar = ({ onBackClick }) => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/api/v1/user/logout`, {
+            const res = await axios.get(`${API_BASE_URL}/api/v1/user/logout`, {
                 withCredentials: true
             });
             navigate("/login");

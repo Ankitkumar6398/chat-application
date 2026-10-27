@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "setup": "node setup-env.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

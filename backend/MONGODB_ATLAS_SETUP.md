@@ -46,22 +46,14 @@ This guide will help you set up MongoDB Atlas (cloud database) for your chat app
 
 ## Step 6: Configure Environment Variables
 
-Create a `.env` file in the `backend` directory:
+`backend` folder mein `.env.example` ko copy karke `.env` banao, phir values update karo (Atlas URI, JWT `SECRET`, baaki defaults chhod sakte ho):
 
-```env
-# Server Configuration
-PORT=8080
-NODE_ENV=development
-
-# MongoDB Atlas Configuration
-MONGODB_URI=mongodb+srv://yourusername:yourpassword@yourcluster.mongodb.net/chatApp?retryWrites=true&w=majority
-
-# JWT Secret
-SECRET=your_super_secret_jwt_key_here
-
-# CORS Configuration
-FRONTEND_URL=http://localhost:3000
+```bash
+cd backend
+copy .env.example .env
 ```
+
+Frontend ke liye bhi: `frontend/.env.example` → `frontend/.env`.
 
 ## Step 7: Test the Connection
 

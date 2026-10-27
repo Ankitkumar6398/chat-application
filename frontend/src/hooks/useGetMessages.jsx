@@ -5,7 +5,7 @@ import { setMessages } from '../redux/messageSlice';
 
 import toast from 'react-hot-toast';
 
-const BASE_URL = "http://localhost:8080";
+import { API_BASE_URL } from "../config";
 const useGetMessages = () => {
     const { selectedUser } = useSelector(store => store.user);
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const useGetMessages = () => {
             if (!selectedUser?._id) return;
             
             try {
-                const res = await axios.get(`${BASE_URL}/api/v1/message/${selectedUser._id}`, {
+                const res = await axios.get(`${API_BASE_URL}/api/v1/message/${selectedUser._id}`, {
                     withCredentials: true
                 });
                 dispatch(setMessages(res.data));

@@ -1,66 +1,38 @@
-# Quick Start Guide - MongoDB Atlas Setup
+# Quick Start
 
-## 🚀 Quick Setup (5 minutes)
+## 1. MongoDB
 
-### 1. Get MongoDB Atlas Connection String
+**Local:** MongoDB install karke chalao — default URI `.env.example` mein hai.
 
-1. Go to [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. Create a free account
-3. Create a new cluster (FREE tier)
-4. Add a database user (username + password)
-5. Allow access from anywhere (0.0.0.0/0)
-6. Get your connection string from "Connect" button
+**Atlas:** [MongoDB Atlas](https://www.mongodb.com/atlas) par free cluster banao, user + network access set karo, connection string copy karo.
 
-### 2. Run Setup Script
+## 2. Environment
 
 ```bash
 cd backend
-npm run setup
+copy .env.example .env
+cd ../frontend
+copy .env.example .env
 ```
 
-Follow the prompts to enter your MongoDB Atlas connection string.
+`backend/.env` kholo aur apna `MONGODB_URI` aur strong `SECRET` daalo. Frontend mein usually default `REACT_APP_API_URL=http://localhost:8080` theek hai.
 
-### 3. Start the Server
+## 3. Run
 
 ```bash
+cd backend
+npm install
 npm run dev
 ```
 
-You should see:
-```
-✅ MongoDB Connected Successfully!
-📊 Database: chatApp
-🌐 Host: your-cluster.mongodb.net
-🚀 Server running on port 8080
-```
+Alag terminal:
 
-## 🔧 Manual Setup
-
-If you prefer to set up manually:
-
-1. Create a `.env` file in the `backend` directory
-2. Add your MongoDB Atlas connection string:
-
-```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/chatApp?retryWrites=true&w=majority
-PORT=8080
-NODE_ENV=development
-SECRET=your_jwt_secret
-FRONTEND_URL=http://localhost:3000
+```bash
+cd frontend
+npm install
+npm start
 ```
 
-## ✅ Verification
+Health check: [http://localhost:8080/health](http://localhost:8080/health)
 
-1. Check server logs for successful connection
-2. Visit `http://localhost:8080/health` in your browser
-3. You should see a JSON response with status "OK"
-
-## 🆘 Troubleshooting
-
-- **Connection failed**: Check your connection string and network access
-- **Authentication error**: Verify username/password
-- **Network error**: Ensure IP is whitelisted in MongoDB Atlas
-
-## 📖 Full Documentation
-
-See `MONGODB_ATLAS_SETUP.md` for detailed instructions. 
+Atlas detail: `MONGODB_ATLAS_SETUP.md`

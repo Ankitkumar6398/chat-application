@@ -7,7 +7,7 @@ import { setMessages } from '../redux/messageSlice';
 import toast from 'react-hot-toast';
 import SimpleEmojiPicker from './SimpleEmojiPicker';
 
-const BASE_URL = "http://localhost:8080";
+import { API_BASE_URL } from "../config";
 
 const SendInput = () => {
     const [message, setMessage] = useState("");
@@ -29,7 +29,7 @@ const SendInput = () => {
 
         setIsLoading(true);
         try {
-            const res = await axios.post(`${BASE_URL}/api/v1/message/send/${selectedUser._id}`, 
+            const res = await axios.post(`${API_BASE_URL}/api/v1/message/send/${selectedUser._id}`, 
                 { message }, 
                 {
                     headers: {

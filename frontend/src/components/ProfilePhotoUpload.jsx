@@ -4,6 +4,7 @@ import { setAuthUser } from '../redux/userSlice';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { FiCamera, FiX } from 'react-icons/fi';
+import { API_BASE_URL } from "../config";
 
 const ProfilePhotoUpload = ({ isOpen, onClose }) => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -12,7 +13,6 @@ const ProfilePhotoUpload = ({ isOpen, onClose }) => {
     const { authUser } = useSelector(store => store.user);
     const dispatch = useDispatch();
 
-    const BASE_URL = "http://localhost:8080";
 
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
@@ -56,7 +56,7 @@ const ProfilePhotoUpload = ({ isOpen, onClose }) => {
             const profilePhotoUrl = previewUrl;
 
             const response = await axios.put(
-                `${BASE_URL}/api/v1/user/profile-photo`,
+                `${API_BASE_URL}/api/v1/user/profile-photo`,
                 { profilePhoto: profilePhotoUrl },
                 {
                     headers: {
@@ -84,7 +84,7 @@ const ProfilePhotoUpload = ({ isOpen, onClose }) => {
     const handleRemovePhoto = async () => {
         try {
             const response = await axios.put(
-                `${BASE_URL}/api/v1/user/profile-photo`,
+                `${API_BASE_URL}/api/v1/user/profile-photo`,
                 { profilePhoto: '' },
                 {
                     headers: {

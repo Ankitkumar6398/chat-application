@@ -7,9 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import io from "socket.io-client";
 import { setSocket } from './redux/socketSlice';
 import { setOnlineUsers } from './redux/userSlice';
-
-// Define BASE_URL directly instead of importing it
-const BASE_URL = "http://localhost:8080";
+import { API_BASE_URL } from "./config";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +31,7 @@ function App() {
 
   useEffect(() => {
     if (authUser) {
-      const socketio = io(`${BASE_URL}`, {
+      const socketio = io(API_BASE_URL, {
         query: {
           userId: authUser._id
         }

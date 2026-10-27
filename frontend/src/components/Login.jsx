@@ -5,8 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from '../redux/userSlice';
 
-// Define BASE_URL directly instead of importing it
-const BASE_URL = "http://localhost:8080";
+import { API_BASE_URL } from "../config";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -20,7 +19,7 @@ const Login = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
+      const res = await axios.post(`${API_BASE_URL}/api/v1/user/login`, user, {
         headers: {
           'Content-Type': 'application/json'
         },

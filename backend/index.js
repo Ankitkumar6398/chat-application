@@ -1,6 +1,5 @@
-// const express = require('express')// method-1
-import express from "express"; // method-2
-import dotenv from "dotenv"; 
+import "dotenv/config";
+import express from "express";
 import connectDB from "./config/db.js";
 import userRoute from "./routes/user.route.js";
 import messageRoute from "./routes/messsage.route.js";
@@ -8,9 +7,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import { app, server } from "./socket/socket.js";
 import mongoose from "mongoose";
-
-// Load environment variables
-dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
